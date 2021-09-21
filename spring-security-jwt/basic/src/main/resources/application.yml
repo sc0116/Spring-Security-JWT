@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8008
   servlet:
     context-path: /
     encoding:
@@ -11,13 +11,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
-    username: cos
-    password: cos1234
-
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: .mustache
+    username: root
+    password: root1234!
 
   jpa:
     hibernate:
