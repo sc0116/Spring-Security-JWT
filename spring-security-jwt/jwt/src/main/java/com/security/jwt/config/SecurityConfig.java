@@ -1,5 +1,6 @@
 package com.security.jwt.config;
 
+import com.security.jwt.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(corsFilter) //@CrossOrigiin(인증X), 시큐리티 필터에 등록 인증O
                 .formLogin().disable()
                 .httpBasic().disable()
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .authorizeRequests()
                 .antMatchers("/api/v1/user/**").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
                 .antMatchers("/api/v1/admin/**").access("hasRole('ROLE_ADMIN')")
